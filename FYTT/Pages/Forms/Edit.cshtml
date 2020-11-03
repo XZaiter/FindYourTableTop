@@ -1,0 +1,50 @@
+﻿@page
+@model FYTT.Pages.Forms.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Form</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Form.ID" />
+            <div class="form-group">
+                <label asp-for="Form.RoleSystem" class="control-label"></label>
+                <input asp-for="Form.RoleSystem" class="form-control" />
+                <span asp-validation-for="Form.RoleSystem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Form.PlayerName" class="control-label"></label>
+                <input asp-for="Form.PlayerName" class="form-control" />
+                <span asp-validation-for="Form.PlayerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Form.ExpectedPlayingTime" class="control-label"></label>
+                <input asp-for="Form.ExpectedPlayingTime" class="form-control" />
+                <span asp-validation-for="Form.ExpectedPlayingTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Form.NumberOfPlayers" class="control-label"></label>
+                <input asp-for="Form.NumberOfPlayers" class="form-control" />
+                <span asp-validation-for="Form.NumberOfPlayers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

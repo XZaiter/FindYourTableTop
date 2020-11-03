@@ -1,0 +1,54 @@
+﻿@page
+@model FYTT.Pages.Forms.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Form[0].RoleSystem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Form[0].PlayerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Form[0].ExpectedPlayingTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Form[0].NumberOfPlayers)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Form) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoleSystem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpectedPlayingTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfPlayers)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
